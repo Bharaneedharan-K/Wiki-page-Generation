@@ -1,0 +1,127 @@
+.admin-container {
+  display: flex;
+  flex-direction: column; /* Stack top bar and main content vertically */
+  height: 100vh;
+}
+
+.top-bar {
+  width: 100%;
+  background-color: #081331; /* Dark background for top bar */
+  padding: 10px 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Space between elements */
+}
+
+.sidebar-toggle {
+  background: transparent; /* Transparent background for button */
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px;
+}
+
+.hamburger {
+  width: 24px; /* Width of the hamburger lines */
+  height: 18px; /* Height of the hamburger lines */
+  position: relative;
+}
+
+.hamburger::before, .hamburger::after, .hamburger div {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 3px;
+  background-color: white;
+  position: absolute;
+  left: 0;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.hamburger::before {
+  top: 0;
+}
+
+.hamburger div {
+  top: 7px; /* Space between lines */
+}
+
+.hamburger::after {
+  bottom: 0;
+}
+
+.hamburger.active::before {
+  transform: rotate(45deg);
+  top: 7px;
+}
+
+.hamburger.active div {
+  opacity: 0;
+}
+
+.hamburger.active::after {
+  transform: rotate(-45deg);
+  bottom: 7px;
+}
+
+.top-bar-title {
+  flex: 1; /* Take up remaining space */
+  text-align: center; /* Center the title */
+  color: #ffffff; /* White text color for top bar heading */
+  margin: 0;
+}
+
+.main-content {
+  display: flex; /* Align sidebar and content side by side */
+  flex: 1;
+  transition: margin-left 0.3s; /* Smooth transition for sidebar toggle */
+}
+
+.sidebar {
+  width: 200px;
+  background-color: #f4f4f4; /* Light gray background for sidebar */
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+}
+
+.sidebar-nav {
+  margin-top: 20px;
+}
+
+.sidebar-nav-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar-nav-item {
+  margin: 10px 0;
+}
+
+.sidebar-nav-link {
+  display: block;
+  text-decoration: none;
+  color: #333; /* Default text color */
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.sidebar-nav-link:hover {
+  background-color: #007bff; /* Background color on hover */
+  color: rgb(181, 177, 177); /* Text color on hover */
+}
+
+.sidebar-nav-link:active {
+  background-color: #0056b3; /* Background color when button is active */
+}
+
+.content {
+  flex: 1;
+  background-color: #cccacaf0; /* Light gray background for content area */
+  padding: 20px;
+  overflow-y: auto; /* Add scroll if content overflows */
+}
